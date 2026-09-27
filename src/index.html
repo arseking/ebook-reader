@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f4ee" />
+    <title>纸间 · TXT 阅读器</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="window-shell">
+      <header class="topbar">
+        <a class="brand" href="#library" aria-label="纸间书架"><span class="brand-mark">纸</span><span>纸间</span></a>
+        <div class="topbar-note"><span class="status-dot"></span>本地阅读 · 无需联网</div>
+      </header>
+      <div class="app-layout">
+        <aside class="sidebar">
+          <div class="side-label">阅读空间</div>
+          <button class="nav-item selected" id="nav-library" type="button"><span class="nav-icon">◷</span>最近阅读</button>
+          <div class="sidebar-bottom">
+            <p>书籍只保存在你的设备上</p>
+            <button class="primary-button full-button" id="open-book" type="button"><span aria-hidden="true">＋</span> 打开 TXT 文件</button>
+          </div>
+        </aside>
+        <main class="main-content">
+          <section class="library-view" id="library-view">
+            <p class="eyebrow">你的阅读空间</p>
+            <h1>慢一点，读几页。</h1>
+            <p class="intro">每一本书都会记住你读到哪里。下次打开，接着读就好。</p>
+            <div class="section-heading"><h2>最近阅读</h2><span class="muted" id="book-count">0 本书</span></div>
+            <div class="book-list" id="book-list"></div>
+            <section class="empty-state" id="empty-state">
+              <div class="empty-illustration" aria-hidden="true"><span>TXT</span><i></i></div>
+              <h2>书架还空着</h2>
+              <p>选一本电脑里的 TXT，找个舒服的节奏开始读吧。</p>
+              <button class="secondary-button" id="empty-open" type="button">选择一本书 <span aria-hidden="true">→</span></button>
+            </section>
+          </section>
+          <section class="reader-view" id="reader-view" hidden>
+            <div class="reader-toolbar">
+              <button class="back-button" id="back-to-library" type="button"><span aria-hidden="true">←</span> 书架</button>
+              <div class="reader-name" id="reader-name"></div>
+              <div class="font-controls" aria-label="字号调整">
+                <button id="font-down" type="button" aria-label="减小字号">A−</button>
+                <span id="font-size-label">18 px</span>
+                <button id="font-up" type="button" aria-label="增大字号">A＋</button>
+              </div>
+            </div>
+            <article class="reading-column" id="reading-column" tabindex="0" aria-label="可滚动阅读正文">
+              <h1 class="reading-title" id="reading-title"></h1>
+              <div class="reading-text" id="reading-text"></div>
+            </article>
+            <footer class="reader-footer">
+              <span>阅读进度</span>
+              <div class="progress-track" role="progressbar" aria-label="当前阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-value"></div></div>
+              <strong id="progress-label">0%</strong>
+            </footer>
+            <p class="save-note" id="save-note" aria-live="polite">阅读位置会自动保存</p>
+          </section>
+        </main>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+    <dialog class="encoding-dialog" id="encoding-dialog" aria-labelledby="encoding-title">
+      <form method="dialog" id="encoding-form">
+        <span class="dialog-icon" aria-hidden="true">文</span>
+        <h2 id="encoding-title">选择文本编码</h2>
+        <p id="encoding-description">无法自动识别这个文件，请选择一种编码后继续阅读。</p>
+        <label for="encoding-choice">文件编码</label>
+        <select id="encoding-choice">
+          <option value="gb18030">简体中文（GB18030）</option>
+          <option value="utf-8">UTF-8</option>
+          <option value="utf-16le">UTF-16 LE</option>
+          <option value="big5">繁体中文（Big5）</option>
+          <option value="shift_jis">日文（Shift JIS）</option>
+        </select>
+        <div class="dialog-actions"><button class="secondary-button" value="cancel">取消</button><button class="primary-button" id="decode-button" value="confirm">继续</button></div>
+      </form>
+    </dialog>
+    <script type="module" src="/renderer.ts"></script>
+  </body>
+</html>
