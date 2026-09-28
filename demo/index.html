@@ -8,17 +8,26 @@
   <body>
     <div id="paper-reader-demo">
       <style>
+        /* ========== 基础设定：颜色 ========== */
         #paper-reader-demo {
-          --paper-bg: #f7f5ef;
-          --paper-panel: #fffefa;
-          --paper-text: #292923;
-          --paper-muted: #77786f;
-          --paper-line: #e9e6dc;
-          --paper-accent: #55715e;
-          --paper-accent-soft: #eaf0e9;
-          width: 100%;
-          color: var(--paper-text);
-          font: 400 15px/1.55 "Segoe UI", "Microsoft YaHei", sans-serif;
+          --paper-bg: #f7f5ef;          /* 米白：整体背景 */
+          --paper-panel: #fffefa;       /* 偏白：顶栏、卡片 */
+          --paper-text: #292923;        /* 深灰：正文字色 */
+          --paper-muted: #77786f;       /* 中灰：次要说明文字 */
+          --paper-line: #e9e6dc;        /* 浅米：分割线 */
+          --paper-accent: #55715e;      /* 墨绿：主色调 */
+          --paper-accent-soft: #eaf0e9; /* 淡绿：按钮浅背景 */
+
+          width: 100%;                    /* 占满父容器宽度 */
+
+          color: var(--paper-text);       /* 默认字色 = 深灰 */
+
+          font-weight: 400;               /* 字重：正常粗细（400 = 默认）*/
+          font-size: 15px;                /* 基础字号 15px（正文会单独改大）*/
+          line-height: 1.55;              /* 行高 = 1.55 倍字体大小 */
+          font-family: "Segoe UI",        /* ① 英文优先用 Segoe UI */
+                       "Microsoft YaHei", /* ② 中文用微软雅黑（Win 自带）*/
+                       sans-serif;        /* ③ 都没有就挑一个无衬线字体兜底 */
         }
         #paper-reader-demo * { box-sizing: border-box; }
         #paper-reader-demo .app {
