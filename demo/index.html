@@ -29,15 +29,23 @@
                        "Microsoft YaHei", /* ② 中文用微软雅黑（Win 自带）*/
                        sans-serif;        /* ③ 都没有就挑一个无衬线字体兜底 */
         }
+
+        /* 让 width 包含边框+内边距，防止布局被撑破 */
         #paper-reader-demo * { box-sizing: border-box; }
+
+        /* ===== 基础设定：阅读器外壳 ===== */
         #paper-reader-demo .app {
-          min-height: 630px;
-          overflow: hidden;
-          border: 1px solid #e8e5dc;
-          border-radius: 16px;
-          background: var(--paper-bg);
-          box-shadow: 0 18px 55px rgba(48, 47, 39, .09);
+          min-height: 630px;            /* 最矮 630px，内容多可继续长高 */
+          overflow: hidden;             /* 剪掉超出圆角范围的部分 */
+          border: 1px solid #e8e5dc;  /* 1px 浅米色细边 */
+          border-radius: 16px;          /* 四角 16px 圆角 */
+          background: var(--paper-bg);  /* 背景 = 调色板的米白 */
+          box-shadow: 0                 /* ① 水平偏移：不偏移 */
+                      18px              /* ② 垂直偏移：向下 18px */
+                      55px              /* ③ 模糊半径：55px，越模糊越柔 */
+                      rgba(48, 47, 39, .09); /* ④ 颜色：深灰，9% 透明度（极淡） */
         }
+        
         #paper-reader-demo .topbar {
           height: 64px;
           display: flex;
