@@ -8,7 +8,7 @@
   <body>
     <div id="paper-reader-demo">
       <style>
-        /* ========== 基础设定：颜色 ========== */
+        /* ========== 调色板与默认字体 ========== */
         #paper-reader-demo {
           --paper-bg: #f7f5ef;          /* 米白：整体背景 */
           --paper-panel: #fffefa;       /* 偏白：顶栏、卡片 */
@@ -33,7 +33,7 @@
         /* 让 width 包含边框+内边距，防止布局被撑破 */
         #paper-reader-demo * { box-sizing: border-box; }
 
-        /* ===== 基础设定：阅读器外壳 ===== */
+        /* ===== 阅读器外壳 ===== */
         #paper-reader-demo .app {
           min-height: 630px;            /* 最矮 630px，内容多可继续长高 */
           overflow: hidden;             /* 剪掉超出圆角范围的部分 */
@@ -46,15 +46,17 @@
                       rgba(48, 47, 39, .09); /* ④ 颜色：深灰，9% 透明度（极淡） */
         }
         
+        /* ===== 顶栏 ===== */
         #paper-reader-demo .topbar {
-          height: 64px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 28px;
-          border-bottom: 1px solid var(--paper-line);
-          background: var(--paper-panel);
+          height: 64px;                   /* 固定 64px 高 */
+          display: flex;                  /* 里面的东西横着排 */
+          align-items: center;            /* 竖直方向居中 */
+          justify-content: space-between; /* 两端分开：左 logo、右说明 */
+          padding: 0 28px;                /* 左右各留 28px */
+          border-bottom: 1px solid var(--paper-line); /* 底边一条细线分隔 */
+          background: var(--paper-panel); /* 比下方内容略亮 */
         }
+        
         #paper-reader-demo .brand { display: flex; align-items: center; gap: 10px; font-weight: 500; letter-spacing: .02em; }
         #paper-reader-demo .brand-mark {
           width: 30px; height: 30px; display: grid; place-items: center;
