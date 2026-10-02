@@ -57,18 +57,49 @@
           background: var(--paper-panel); /* 比下方内容略亮 */
         }
         
-        #paper-reader-demo .brand { display: flex; align-items: center; gap: 10px; font-weight: 500; letter-spacing: .02em; }
+        /* ===== 顶栏左侧品牌区 ===== */
+        #paper-reader-demo .brand { 
+          display: flex;          /* 图标和文字横着排 */
+          align-items: center;    /* 竖着居中对齐 */
+          gap: 10px;              /* 图标和文字之间留 10px 缝 */
+          font-weight: 500;       /* 字重中等（比正常略粗，但不笨重）*/
+          letter-spacing: .02em;  /* 字距微微拉开一点，显得透气 */
+        }
+
+        /* ===== 品牌图标：绿底"纸"字方块 ===== */
         #paper-reader-demo .brand-mark {
-          width: 30px; height: 30px; display: grid; place-items: center;
-          color: var(--paper-panel); background: var(--paper-accent); border-radius: 9px;
-          font-family: Georgia, serif; font-size: 17px;
+          width: 30px; height: 30px;        /* 30×30 正方形 */
+          display: grid;                    /* 用网格布局 */
+          place-items: center;              /* 子元素上下左右完美居中 */
+          color: var(--paper-panel);        /* 字色 = 偏白（复用调色板）*/
+          background: var(--paper-accent);  /* 底色 = 墨绿（主色调）*/
+          border-radius: 9px;               /* 9px 圆角（30px 的 30%，刚好柔和）*/
+          font-family: Georgia, serif;      /* 古典衬线字体，有书卷气 */
+          font-size: 17px;                  /* 字号 17px，占方块约 57% */
         }
-        #paper-reader-demo .top-meta { color: var(--paper-muted); font-size: 12px; }
-        #paper-reader-demo .layout { display: grid; grid-template-columns: 224px minmax(0, 1fr); min-height: 566px; }
+
+        /* ===== 顶栏右侧说明文字 ===== */
+        #paper-reader-demo .top-meta { 
+          color: var(--paper-muted);  /* 中灰：次要文字，不抢戏 */
+          font-size: 12px;            /* 12px：小号，再小就看不清了 */
+        }
+
+        /* ===== 左右分栏布局 ===== */
+        #paper-reader-demo .layout { 
+          display: grid;                                /* 用网格布局 */
+          grid-template-columns: 224px minmax(0, 1fr);  /* 左固定 224px，右占剩余；minmax 防撑破 */
+          min-height: 566px;                            /* 最矮 566px（630 总高 − 64 顶栏）*/
+        }
+
+        /* ===== 左侧栏 ===== */
         #paper-reader-demo .sidebar {
-          display: flex; flex-direction: column; padding: 25px 16px 18px;
-          border-right: 1px solid var(--paper-line); background: rgba(255, 254, 250, .58);
+          display: flex;            /* 声明 flex 容器，里面的子元素按 flex 规则排列 */
+          flex-direction: column;   /* 排列方向改为「竖着排」（默认是横排） */
+          padding: 25px 16px 18px;  /* 上 25 / 左右 16 / 下 18 */
+          border-right: 1px solid var(--paper-line);  /* 右侧一条竖线，和主内容分开 */
+          background: rgba(255, 254, 250, .58);     /* 半透明偏白，比纯色更通透 */
         }
+        
         #paper-reader-demo .side-label { padding: 0 12px 11px; color: #96968d; font-size: 11px; letter-spacing: .12em; }
         #paper-reader-demo .side-link {
           width: 100%; min-height: 42px; display: flex; align-items: center; gap: 11px;
